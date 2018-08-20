@@ -1,0 +1,11 @@
+u need to exec: 
+
+1. put db to: /etc/TEMP
+
+2. docker build . -t new_container_name
+
+
+
+
+
+3. docker run --publish 0.0.0.0:80:8000 -v /etc/TEMP:/mysite/TEMP new_container_name

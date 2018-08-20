@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Авторизация</title>
+		<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+            
+	</head>
+	<body>
+		<div style="width: 500px; margin: 100px auto">
+		<form action="/login" method="POST">
+			{% csrf_token %}
+			Логин:
+			<input type="text" name="username" />
+			Пароль:
+			<input type="password" name="password" />
+			<button class="btn waves-effect waves-light grey darken-2" type="submit">Войти</button>
+		</form>
+		</div>
+	</body>
+</html>

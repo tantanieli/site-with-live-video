@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Stream Player </title>
+   
+<link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet">
+  <script src="https://unpkg.com/video.js/dist/video.js"></script>
+  <script src="https://unpkg.com/videojs-contrib-hls/dist/videojs-contrib-hls.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+
+var list = document.getElementsByTagName("video").length;
+var players = new Array(list.length);
+var ids = new Array(list.length);
+for (var i = 0; i < list.length; i++) {
+        var d = i+1;
+        ids[i]='livestream'+d;
+        players[i] = videojs(ids[i]);
+        players[i].play();
+        document.write(ids);
+}
+                });
+</script>
+</head>
+<body>
+<div>
+        {% for camera in cameras %}
+  <div style="float: left;  margin-left: 10px; margin-top: 6px; margin-bottom:7px;">
+  <div style="text-align: center; font-style: normal; font-size: 16pt; margin: 3px;">{{ camera.name }}</div> 
+    <video id="livestream{{ forloop.counter }}" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360" data-setup='{}'>
+  
+      <source src="{{ camera.source_url }}" type="application/x-mpegURL">
+
+    </video>
+</div>
+        {% endfor %}
+</div>
+</body>
+</html>
+
